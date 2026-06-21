@@ -42,7 +42,6 @@ A quick checklist. Get the **Required** items working at home so the live sessio
 **Optional**
 
 6. A throwaway **GitHub fine-grained PAT** and/or **Stripe test-mode** key to broker a real service.
-   The core "aha" needs neither (see `.env.example`). Never bring prod keys.
 
 ---
 
@@ -60,6 +59,7 @@ whenever, or run the whole thing after the stream.
 Quick start:
 ```bash
 git clone https://github.com/jakehulberg/credential-brokering-workshop && cd credential-brokering-workshop
+curl -fsSL https://get.agent-vault.dev | sh   # install the Agent Vault CLI (skip if you already have it)
 agent-vault server -d       # press Enter at the prompt for passwordless; -d backgrounds it
 # then open checkpoints/01-broker-up.md and go
 ```
