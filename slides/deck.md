@@ -230,8 +230,8 @@ A proxy between the agent and the API that
 
 # How does the agent even know to use this?
 
-`agent-vault run` installs a **skill** that teaches the agent
-to route through the broker and to **request access** when it needs it.
+- `agent-vault run` sets `HTTPS_PROXY` + CA trust, so its HTTP traffic routes through the broker **automatically**, no agent buy-in needed
+- It also installs a **skill**: docs that teach the agent to **request access** (raise a proposal) when it's missing something
 
 ---
 
