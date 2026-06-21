@@ -1,0 +1,42 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MITM TLS interception mechanics">
+<style>
+svg{--bg:#ffffff;--bg-1:#ffffff;--bg-2:#f5f5f3;--bg-3:#ededeb;--border:#d4d4d8;--border-strong:#9a9aa2;--text:#111111;--text-2:#52525b;--text-3:#8a8a8a;--accent:#5b7000;--accent-2:#5b7000;--vo:#5b7000;--vis:#52525b;--cmd:#5b7000;--danger:#c01f12;--ok:#5b7000;--warn:#5b7000;}
+text{font-family:'Alliance No.2',Inter,system-ui,-apple-system,sans-serif;}
+text[font-family*="mono"],text[font-family*="Mono"]{font-family:'JetBrains Mono',ui-monospace,monospace;}
+</style>
+        <defs>
+          <marker id="dTlsArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--text-2)"/>
+          </marker>
+        </defs>
+
+        <!-- Agent host -->
+        <rect x="40" y="70" width="220" height="170" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="150" y="98" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">Agent host</text>
+
+        <text x="150" y="128" fill="var(--text-3)" font-family="ui-sans-serif" font-size="13" text-anchor="middle">trust anchors:</text>
+        <text x="150" y="148" fill="var(--text-3)" font-family="ui-monospace" font-size="12.5" text-anchor="middle">Let's Encrypt root</text>
+        <text x="150" y="164" fill="var(--text-3)" font-family="ui-monospace" font-size="12.5" text-anchor="middle">DigiCert root</text>
+        <text x="150" y="180" fill="var(--text-3)" font-family="ui-monospace" font-size="12.5" text-anchor="middle">...</text>
+        <text x="150" y="208" fill="var(--ok)" font-family="ui-monospace" font-size="14" font-weight="700" text-anchor="middle">broker's CA</text>
+
+        <!-- TLS #1 -->
+        <path d="M 270 155 L 360 155" stroke="var(--text-2)" stroke-width="2.5" fill="none" marker-end="url(#dTlsArr)"/>
+        <text x="315" y="140" fill="var(--text)" font-family="ui-sans-serif" font-size="14" text-anchor="middle" font-weight="700">TLS #1</text>
+
+        <!-- Broker -->
+        <rect x="370" y="70" width="180" height="170" rx="12" fill="var(--bg-1)" stroke="var(--ok)" stroke-width="1.5"/>
+        <text x="460" y="98" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">Broker</text>
+        <text x="460" y="148" fill="var(--text-2)" font-family="ui-monospace" font-size="14" text-anchor="middle">encrypted</text>
+        <text x="460" y="173" fill="var(--text-3)" font-family="ui-sans-serif" font-size="18" text-anchor="middle">↓</text>
+        <text x="460" y="200" fill="var(--vis)" font-family="ui-monospace" font-size="14" font-weight="700" text-anchor="middle">plaintext</text>
+
+        <!-- TLS #2 -->
+        <path d="M 560 155 L 640 155" stroke="var(--text-2)" stroke-width="2.5" fill="none" marker-end="url(#dTlsArr)"/>
+        <text x="600" y="140" fill="var(--text)" font-family="ui-sans-serif" font-size="14" text-anchor="middle" font-weight="700">TLS #2</text>
+
+        <!-- Upstream -->
+        <rect x="650" y="70" width="220" height="170" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="760" y="98" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">api.github.com</text>
+        <text x="760" y="158" fill="var(--text-3)" font-family="ui-sans-serif" font-size="13" text-anchor="middle">real cert</text>
+      </svg>

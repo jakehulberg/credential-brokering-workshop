@@ -1,0 +1,128 @@
+/* @theme agent-vault
+ * Infisical-branded deck theme. Follows DESIGN.md (../../DESIGN.md):
+ * Alliance No.2 + JetBrains Mono, volt (#dbf530) accent used sparingly,
+ * binary surfaces (#fff or #111), sharp corners, flat (no shadows).
+ * LIGHT surface deck (#fff). Volt appears as fills only (top rule, highlight
+ * marks) since it is illegible as text/stroke on white. Alliance No.2 is a
+ * private font; if its .otf isn't present the stack falls back to Inter.
+ */
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* Drop Alliance No.2 *.otf into theme/fonts/ to upgrade from the Inter fallback. */
+@font-face {
+  font-family: 'Alliance No.2';
+  src: url('fonts/Alliance No.2 Regular.otf') format('opentype');
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: 'Alliance No.2';
+  src: url('fonts/Alliance No.2 SemiBold.otf') format('opentype');
+  font-weight: 600; font-display: swap;
+}
+
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-subtle: #52525b;
+  --border: #d4d4d8;
+  --volt: #dbf530;
+  --error: #8a1208;
+  --sans: 'Alliance No.2', Inter, system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Top-align content so titles sit at the TOP of every slide (not centered). */
+section {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 28px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  padding: 56px 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Consistent volt rule across the top of every slide. */
+  border-top: 8px solid var(--volt);
+}
+
+/* Headings: Alliance, near-black. Volt is NEVER a heading text color (One-Volt Rule). */
+h1 { color: var(--text); font-weight: 500; font-size: 2.0em; letter-spacing: -0.03em; line-height: 1.1; margin: 0 0 0.5em; }
+h2 { color: var(--text); font-weight: 600; font-size: 1.1em; letter-spacing: -0.02em; }
+h3 { color: var(--text-subtle); font-weight: 600; }
+
+strong { color: var(--text); font-weight: 600; }
+/* Emphasis as a volt highlight mark (sparing), black text on volt. */
+em { background: var(--volt); color: #000000; font-style: normal; padding: 0 4px; }
+a { color: var(--text); text-decoration: underline; }
+
+ul, ol { margin-top: 0.3em; }
+li { margin: 0.45em 0; color: var(--text); }
+li::marker { color: var(--text-subtle); }
+
+/* Code: JetBrains Mono. Binary surfaces: code blocks on #fff with a 1px border. */
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--text);
+}
+pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  padding: 0.8em 1em;
+  font-size: 0.6em;
+}
+pre code { color: var(--text); }
+
+blockquote {
+  border-left: 2px solid var(--border);
+  color: var(--text-subtle);
+  padding-left: 0.8em;
+  margin-left: 0;
+  font-style: normal;
+}
+
+img[alt~="diagram"] { display: block; margin: 0.2em auto; max-height: 60vh; }
+/* Full-width screenshots (blog proof slides): centered, 1px border, sharp corners. */
+img[alt~="shot"] { display: block; margin: 0.3em auto; max-height: 58vh; max-width: 90%; border: 1px solid var(--border); }
+
+/* Tables: flat, 1px borders. */
+table { font-size: 0.7em; border-collapse: collapse; }
+th { color: var(--text); border-bottom: 1px solid var(--border); font-weight: 600; }
+td, th { padding: 0.35em 0.8em; border-bottom: 1px solid var(--border); }
+
+header, footer { color: var(--text-subtle); font-size: 0.5em; font-family: var(--mono); }
+section::after { color: var(--text-subtle); font-family: var(--mono); } /* page numbers */
+
+/* Selection Rule (global). */
+::selection { background: var(--volt); color: #000000; }
+
+/* Cover slides (title + thank-you): the only centered slides. */
+section.cover { justify-content: center; }
+section.cover h1 { font-size: 2.5em; }
+section.cover .cover-logo { width: 104px; height: auto; display: block; margin: 0 0 0.4em; }
+section.cover .cover-clone { display: flex; align-items: center; gap: 18px; margin-top: 0.8em; }
+section.cover .cover-clone img.qr { width: 104px; height: auto; }
+section.cover .cover-clone span { font-size: 0.7em; color: var(--text-subtle); }
+section.cover .cover-clone code { font-size: 0.95em; }
+
+/* Lead (rhetorical statement) slides: bigger type, still top-aligned. */
+section.lead h1 { font-size: 2.2em; }
+
+/* Checkpoint marker: volt is a valid key callout. */
+section.checkpoint h2::before { content: "● "; color: var(--volt); }
+
+/* Two-column utility (e.g. the follow-along slide: screenshot + QR/link). */
+.cols { display: flex; gap: 56px; align-items: center; justify-content: center; margin-top: 0.4em; }
+.cols > div { flex: 1; }
+.cols img.shot { display: block; max-width: 100%; max-height: 52vh; border: 1px solid var(--border); }
+.cols img.qr { display: block; width: 260px; height: auto; }
+.cols code { font-size: 0.8em; }
+/* Preview-dominant two-column (checkpoint cards): the rendered md preview leads. */
+.cols-preview > div:first-child { flex: 1.6; }
+.cols-preview img.shot { max-height: 60vh; }
+.cols-preview img.qr { width: 168px; }
+.cols-preview p { margin: 0.4em 0; }

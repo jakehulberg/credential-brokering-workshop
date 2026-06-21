@@ -1,0 +1,38 @@
+<svg viewBox="0 0 1080 280" xmlns="http://www.w3.org/2000/svg" font-family="'Alliance No.2', Inter, system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="mbArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52525b"/>
+    </marker>
+  </defs>
+
+  <!-- Agent box -->
+  <rect x="20" y="78" width="250" height="128" rx="10" fill="#ffffff" stroke="#9a9aa2" stroke-width="1.5"/>
+  <text x="145" y="112" text-anchor="middle" fill="#111111" font-size="21" font-weight="700">Agent box</text>
+  <text x="145" y="140" text-anchor="middle" fill="#52525b" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">AGENT_VAULT_TOKEN</text>
+  <text x="145" y="161" text-anchor="middle" fill="#52525b" font-size="14">proxy env + CA trust</text>
+  <text x="145" y="184" text-anchor="middle" fill="#5b7000" font-size="14" font-weight="600">holds no secrets</text>
+
+  <!-- arrow 1 -->
+  <path d="M 275 142 L 415 142" stroke="#52525b" stroke-width="2" fill="none" marker-end="url(#mbArr)"/>
+  <text x="345" y="128" text-anchor="middle" fill="#52525b" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">HTTPS_PROXY</text>
+  <text x="345" y="170" text-anchor="middle" fill="#8a8a8a" font-size="12" font-style="italic">network</text>
+
+  <!-- Broker box -->
+  <rect x="420" y="66" width="250" height="152" rx="10" fill="#ffffff" stroke="#5b7000" stroke-width="2"/>
+  <text x="545" y="104" text-anchor="middle" fill="#111111" font-size="21" font-weight="700">Broker box</text>
+  <text x="545" y="132" text-anchor="middle" fill="#5b7000" font-size="14" font-weight="600">real credentials</text>
+  <text x="545" y="153" text-anchor="middle" fill="#52525b" font-size="14">CA + injection</text>
+  <text x="545" y="180" text-anchor="middle" fill="#52525b" font-size="13">private network</text>
+
+  <!-- arrow 2 -->
+  <path d="M 675 142 L 815 142" stroke="#52525b" stroke-width="2" fill="none" marker-end="url(#mbArr)"/>
+  <text x="745" y="128" text-anchor="middle" fill="#52525b" font-size="12" font-style="italic">injected</text>
+
+  <!-- APIs -->
+  <rect x="820" y="78" width="240" height="128" rx="10" fill="#ffffff" stroke="#9a9aa2" stroke-width="1.5"/>
+  <text x="940" y="112" text-anchor="middle" fill="#111111" font-size="21" font-weight="700">APIs</text>
+  <text x="940" y="140" text-anchor="middle" fill="#52525b" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">api.github.com</text>
+  <text x="940" y="161" text-anchor="middle" fill="#52525b" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">api.stripe.com</text>
+
+  <text x="540" y="252" text-anchor="middle" fill="#8a8a8a" font-size="14">Compromise the agent box and there is no secret to find. The credentials never leave the broker.</text>
+</svg>

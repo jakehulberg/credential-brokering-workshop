@@ -1,0 +1,55 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Brokered architecture overview">
+<style>
+svg{--bg:#ffffff;--bg-1:#ffffff;--bg-2:#f5f5f3;--bg-3:#ededeb;--border:#d4d4d8;--border-strong:#9a9aa2;--text:#111111;--text-2:#52525b;--text-3:#8a8a8a;--accent:#5b7000;--accent-2:#5b7000;--vo:#5b7000;--vis:#52525b;--cmd:#5b7000;--danger:#c01f12;--ok:#5b7000;--warn:#5b7000;}
+text{font-family:'Alliance No.2',Inter,system-ui,-apple-system,sans-serif;}
+text[font-family*="mono"],text[font-family*="Mono"]{font-family:'JetBrains Mono',ui-monospace,monospace;}
+</style>
+        <defs>
+          <marker id="d1arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--text-2)"/>
+          </marker>
+        </defs>
+
+        <rect x="60" y="20" width="780" height="140" rx="14" fill="none" stroke="var(--border-strong)" stroke-dasharray="6 5"/>
+        <text x="80" y="50" fill="var(--text-3)" font-family="ui-sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">PUBLIC INTERNET</text>
+
+        <rect x="110" y="80" width="170" height="50" rx="8" fill="var(--bg-3)" stroke="var(--border-strong)"/>
+        <text x="195" y="111" fill="var(--text)" font-family="ui-monospace" font-size="14.5" text-anchor="middle">api.anthropic.com</text>
+
+        <rect x="300" y="80" width="170" height="50" rx="8" fill="var(--bg-3)" stroke="var(--border-strong)"/>
+        <text x="385" y="111" fill="var(--text)" font-family="ui-monospace" font-size="14.5" text-anchor="middle">api.github.com</text>
+
+        <rect x="490" y="80" width="170" height="50" rx="8" fill="var(--bg-3)" stroke="var(--border-strong)"/>
+        <text x="575" y="111" fill="var(--text)" font-family="ui-monospace" font-size="14.5" text-anchor="middle">api.stripe.com</text>
+
+        <text x="715" y="116" fill="var(--text-3)" font-family="ui-monospace" font-size="20" font-weight="700">. . .</text>
+
+        <rect x="60" y="290" width="780" height="260" rx="14" fill="none" stroke="var(--border-strong)" stroke-dasharray="6 5"/>
+        <text x="80" y="320" fill="var(--text-3)" font-family="ui-sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">PRIVATE NETWORK</text>
+
+        <rect x="100" y="350" width="380" height="150" rx="12" fill="var(--bg-1)" stroke="var(--ok)" stroke-width="1.5"/>
+        <text x="120" y="382" fill="var(--text)" font-family="ui-sans-serif" font-size="17" font-weight="700">Credential broker</text>
+        <text x="120" y="402" fill="var(--text-3)" font-family="ui-sans-serif" font-size="13.5">holds real credentials, encrypted at rest</text>
+
+        <text x="120" y="438" fill="var(--text-2)" font-family="ui-monospace" font-size="15" font-weight="600">:control</text>
+        <text x="200" y="438" fill="var(--text)" font-family="ui-sans-serif" font-size="15">management UI / API (private)</text>
+
+        <text x="120" y="472" fill="var(--text-2)" font-family="ui-monospace" font-size="15" font-weight="600">:proxy</text>
+        <text x="200" y="472" fill="var(--text)" font-family="ui-sans-serif" font-size="15">MITM transparent proxy</text>
+
+        <rect x="540" y="350" width="260" height="150" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="560" y="382" fill="var(--text)" font-family="ui-sans-serif" font-size="17" font-weight="700">AI agent</text>
+        <text x="560" y="402" fill="var(--text-3)" font-family="ui-sans-serif" font-size="13.5">holds placeholders, never real keys</text>
+        <text x="560" y="438" fill="var(--text-3)" font-family="ui-monospace" font-size="14">HTTPS_PROXY =</text>
+        <text x="560" y="460" fill="var(--text-2)" font-family="ui-monospace" font-size="14">broker:proxy-port</text>
+        <text x="560" y="492" fill="var(--text-3)" font-family="ui-sans-serif" font-size="13" font-style="italic">all outbound HTTP routed via broker</text>
+
+        <path d="M 540 435 L 482 435" fill="none" stroke="var(--text-2)" stroke-width="2" marker-end="url(#d1arr)"/>
+
+        <path d="M 195 350 L 195 132" fill="none" stroke="var(--text-2)" stroke-width="2" marker-end="url(#d1arr)"/>
+        <path d="M 385 350 L 385 132" fill="none" stroke="var(--text-2)" stroke-width="2" marker-end="url(#d1arr)"/>
+        <path d="M 440 350 L 440 210 L 575 210 L 575 132" fill="none" stroke="var(--text-2)" stroke-width="2" marker-end="url(#d1arr)"/>
+
+        <text x="608" y="245" fill="var(--text-2)" font-family="ui-sans-serif" font-size="14.5" font-style="italic">outbound HTTPS — broker injects</text>
+        <text x="608" y="263" fill="var(--text-2)" font-family="ui-sans-serif" font-size="14.5" font-style="italic">real credentials at the boundary</text>
+      </svg>

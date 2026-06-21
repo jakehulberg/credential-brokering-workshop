@@ -1,0 +1,48 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomy of a credential exfil">
+<style>
+svg{--bg:#ffffff;--bg-1:#ffffff;--bg-2:#f5f5f3;--bg-3:#ededeb;--border:#d4d4d8;--border-strong:#9a9aa2;--text:#111111;--text-2:#52525b;--text-3:#8a8a8a;--accent:#5b7000;--accent-2:#5b7000;--vo:#5b7000;--vis:#52525b;--cmd:#5b7000;--danger:#c01f12;--ok:#5b7000;--warn:#5b7000;}
+text{font-family:'Alliance No.2',Inter,system-ui,-apple-system,sans-serif;}
+text[font-family*="mono"],text[font-family*="Mono"]{font-family:'JetBrains Mono',ui-monospace,monospace;}
+</style>
+        <defs>
+          <marker id="dExfilArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--text-2)"/>
+          </marker>
+          <marker id="dExfilArrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--danger)"/>
+          </marker>
+        </defs>
+
+        <!-- Box 1: Untrusted content -->
+        <rect x="40" y="60" width="240" height="240" rx="12" fill="var(--bg-1)" stroke="var(--danger)" stroke-width="1.5"/>
+        <text x="60" y="92" fill="var(--danger)" font-family="ui-sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">UNTRUSTED CONTENT</text>
+
+        <rect x="58" y="115" width="206" height="170" rx="6" fill="var(--bg-3)" stroke="var(--border)"/>
+        <text x="70" y="155" fill="var(--text-3)" font-family="ui-monospace" font-size="13">&lt;USER MESSAGE&gt;</text>
+        <text x="70" y="205" fill="var(--danger)" font-family="ui-monospace" font-size="13" font-weight="700">&lt;PROMPT INJECTION&gt;</text>
+        <text x="70" y="255" fill="var(--text-3)" font-family="ui-monospace" font-size="13">&lt;USER MESSAGE&gt;</text>
+
+        <!-- Arrow 1 -->
+        <path d="M 285 180 L 335 180" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dExfilArr)"/>
+
+        <!-- Box 2: Agent reads/acts -->
+        <rect x="340" y="60" width="220" height="240" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="360" y="92" fill="var(--text-2)" font-family="ui-sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">AGENT READS + ACTS</text>
+
+        <rect x="358" y="115" width="184" height="170" rx="6" fill="var(--bg-3)" stroke="var(--border)"/>
+        <text x="450" y="208" fill="var(--text)" font-family="ui-sans-serif" font-size="14" text-anchor="middle">follows the text</text>
+
+        <!-- Arrow 2 -->
+        <path d="M 565 180 L 615 180" stroke="var(--danger)" stroke-width="2" fill="none" marker-end="url(#dExfilArrRed)"/>
+
+        <!-- Box 3: Attacker receives -->
+        <rect x="620" y="60" width="240" height="240" rx="12" fill="var(--bg-1)" stroke="var(--danger)" stroke-width="1.5"/>
+        <text x="640" y="92" fill="var(--danger)" font-family="ui-sans-serif" font-size="13" font-weight="700" letter-spacing="1.2">ATTACKER RECEIVES</text>
+
+        <rect x="638" y="115" width="206" height="170" rx="6" fill="var(--bg-3)" stroke="var(--border)"/>
+        <text x="650" y="160" fill="var(--text-2)" font-family="ui-monospace" font-size="14">{</text>
+        <text x="650" y="185" fill="var(--text-2)" font-family="ui-monospace" font-size="14">  "GITHUB_TOKEN":</text>
+        <text x="650" y="210" fill="var(--danger)" font-family="ui-monospace" font-size="14" font-weight="700">  "ghp_PYdp..."</text>
+        <text x="650" y="235" fill="var(--text-2)" font-family="ui-monospace" font-size="14">}</text>
+
+      </svg>

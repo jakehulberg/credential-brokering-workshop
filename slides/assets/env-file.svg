@@ -1,0 +1,30 @@
+<svg viewBox="0 0 760 470" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect x="1" y="1" width="758" height="468" rx="10" fill="#1b1b1f" stroke="#2a2a2a"/>
+  <!-- title bar -->
+  <path d="M1 11 a10 10 0 0 1 10 -10 h738 a10 10 0 0 1 10 10 v45 h-758 z" fill="#26262b"/>
+  <circle cx="26" cy="29" r="6" fill="#ff5f56"/>
+  <circle cx="48" cy="29" r="6" fill="#ffbd2e"/>
+  <circle cx="70" cy="29" r="6" fill="#27c93f"/>
+  <text x="100" y="35" fill="#e4e4e7" font-size="18" font-weight="600">.env</text>
+
+  <!-- lines: line# (gray) · KEY (text) · = · value (amber 'secret') -->
+  <g font-size="17">
+    <text x="30" y="104" fill="#5b5b62">1</text>
+    <text x="60" y="104"><tspan fill="#d4d4d8">STRIPE_KEY</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">sk_live_51H8xQ2eZvKf9e9Qz</tspan></text>
+
+    <text x="30" y="158" fill="#5b5b62">2</text>
+    <text x="60" y="158"><tspan fill="#d4d4d8">GITHUB_TOKEN</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">ghp_R2d8aF4kLp3qkP1a</tspan></text>
+
+    <text x="30" y="212" fill="#5b5b62">3</text>
+    <text x="60" y="212"><tspan fill="#d4d4d8">OPENAI_API_KEY</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">sk-proj-7fJd0Xc92Ab</tspan></text>
+
+    <text x="30" y="266" fill="#5b5b62">4</text>
+    <text x="60" y="266"><tspan fill="#d4d4d8">DATABASE_URL</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">postgres://app:S3cr3t@db:5432</tspan></text>
+
+    <text x="30" y="320" fill="#5b5b62">5</text>
+    <text x="60" y="320"><tspan fill="#d4d4d8">AWS_SECRET_ACCESS_KEY</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">wJalrXUtnFEMI/K7</tspan></text>
+
+    <text x="30" y="374" fill="#5b5b62">6</text>
+    <text x="60" y="374"><tspan fill="#d4d4d8">SLACK_BOT_TOKEN</tspan><tspan fill="#6b6b6b">=</tspan><tspan fill="#d8a657">xoxb-2451d09f8c</tspan></text>
+  </g>
+</svg>

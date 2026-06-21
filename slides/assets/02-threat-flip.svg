@@ -1,0 +1,54 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Deterministic program vs non-deterministic agent">
+<style>
+svg{--bg:#ffffff;--bg-1:#ffffff;--bg-2:#f5f5f3;--bg-3:#ededeb;--border:#d4d4d8;--border-strong:#9a9aa2;--text:#111111;--text-2:#52525b;--text-3:#8a8a8a;--accent:#5b7000;--accent-2:#5b7000;--vo:#5b7000;--vis:#52525b;--cmd:#5b7000;--danger:#c01f12;--ok:#5b7000;--warn:#5b7000;}
+text{font-family:'Alliance No.2',Inter,system-ui,-apple-system,sans-serif;}
+text[font-family*="mono"],text[font-family*="Mono"]{font-family:'JetBrains Mono',ui-monospace,monospace;}
+</style>
+        <defs>
+          <marker id="dDetArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--text-2)"/>
+          </marker>
+          <marker id="dDetArrRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--danger)"/>
+          </marker>
+        </defs>
+
+        <!-- LEFT PANEL: TRADITIONAL SOFTWARE -->
+        <text x="215" y="42" fill="var(--text)" font-family="ui-sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1.5">TRADITIONAL SOFTWARE</text>
+
+        <!-- Input -->
+        <text x="55" y="172" fill="var(--text-2)" font-family="ui-monospace" font-size="15" text-anchor="middle">$50</text>
+        <path d="M 80 165 L 135 165" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dDetArr)"/>
+
+        <!-- Box -->
+        <rect x="140" y="125" width="150" height="80" rx="10" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="215" y="170" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">Billing service</text>
+
+        <!-- Output -->
+        <path d="M 295 165 L 350 165" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dDetArr)"/>
+        <text x="357" y="172" fill="var(--text-2)" font-family="ui-monospace" font-size="15">receipt</text>
+
+        <!-- Divider -->
+        <line x1="450" y1="30" x2="450" y2="290" stroke="var(--border-strong)" stroke-dasharray="3 4"/>
+
+        <!-- RIGHT PANEL: AI AGENT -->
+        <text x="640" y="42" fill="var(--text)" font-family="ui-sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1.5">AI AGENT</text>
+
+        <!-- Input -->
+        <text x="490" y="172" fill="var(--text-2)" font-family="ui-monospace" font-size="15" text-anchor="middle">text</text>
+        <path d="M 515 165 L 565 165" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dDetArr)"/>
+
+        <!-- Box -->
+        <rect x="570" y="125" width="150" height="80" rx="10" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="645" y="170" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">AI agent</text>
+
+        <!-- Fanning outputs -->
+        <path d="M 725 135 L 775 90" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dDetArr)"/>
+        <text x="783" y="95" fill="var(--text-2)" font-family="ui-monospace" font-size="13">response</text>
+
+        <path d="M 725 165 L 775 165" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#dDetArr)"/>
+        <text x="783" y="170" fill="var(--text-2)" font-family="ui-monospace" font-size="13">tool call</text>
+
+        <path d="M 725 195 L 775 240" stroke="var(--danger)" stroke-width="2.5" fill="none" marker-end="url(#dDetArrRed)"/>
+        <text x="783" y="246" fill="var(--danger)" font-family="ui-monospace" font-size="13" font-weight="700">exfiltration</text>
+      </svg>

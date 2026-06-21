@@ -1,0 +1,72 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Request flow">
+<style>
+svg{--bg:#ffffff;--bg-1:#ffffff;--bg-2:#f5f5f3;--bg-3:#ededeb;--border:#d4d4d8;--border-strong:#9a9aa2;--text:#111111;--text-2:#52525b;--text-3:#8a8a8a;--accent:#5b7000;--accent-2:#5b7000;--vo:#5b7000;--vis:#52525b;--cmd:#5b7000;--danger:#c01f12;--ok:#5b7000;--warn:#5b7000;}
+text{font-family:'Alliance No.2',Inter,system-ui,-apple-system,sans-serif;}
+text[font-family*="mono"],text[font-family*="Mono"]{font-family:'JetBrains Mono',ui-monospace,monospace;}
+</style>
+        <defs>
+          <marker id="d3arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M0,0 L10,5 L0,10 z" fill="var(--text-2)"/>
+          </marker>
+        </defs>
+
+        <rect x="40"  y="60" width="240" height="400" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="160" y="86" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">Agent host</text>
+
+        <rect x="330" y="60" width="240" height="400" rx="12" fill="var(--bg-1)" stroke="var(--ok)" stroke-width="1.5"/>
+        <text x="450" y="86" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">Credential broker</text>
+
+        <rect x="620" y="60" width="240" height="400" rx="12" fill="var(--bg-1)" stroke="var(--border-strong)" stroke-width="1.5"/>
+        <text x="740" y="86" fill="var(--text)" font-family="ui-sans-serif" font-size="15" font-weight="700" text-anchor="middle">api.github.com</text>
+
+        <g font-family="ui-sans-serif" font-size="13.5">
+          <rect x="60" y="110" width="200" height="70" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="74" y="129" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 1</text>
+          <text x="74" y="146" fill="var(--text)">Agent issues request</text>
+          <text x="74" y="161" fill="var(--text-2)" font-family="ui-monospace">Authorization: Bearer</text>
+          <text x="74" y="174" fill="var(--vis)" font-family="ui-monospace">__github_token__</text>
+
+          <rect x="60" y="192" width="200" height="56" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="74" y="211" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 2</text>
+          <text x="74" y="228" fill="var(--text)">HTTPS_PROXY routes to</text>
+          <text x="74" y="242" fill="var(--text-2)" font-family="ui-monospace">broker:proxy-port</text>
+
+          <rect x="350" y="110" width="200" height="74" rx="8" fill="var(--bg-3)" stroke="var(--ok)" stroke-dasharray="4 3"/>
+          <text x="364" y="129" fill="var(--ok)" font-size="12.5" font-weight="700">STEP 2.5 · MITM</text>
+          <text x="364" y="146" fill="var(--text)">TLS termination + re-encrypt</text>
+          <text x="364" y="161" fill="var(--text-2)">broker presents trusted cert</text>
+          <text x="364" y="175" fill="var(--text-2)">→ fresh TLS conn to upstream</text>
+
+          <rect x="350" y="192" width="200" height="56" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="364" y="211" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 3</text>
+          <text x="364" y="228" fill="var(--text)">Authenticate the agent</text>
+          <text x="364" y="242" fill="var(--text-2)">→ which scope?</text>
+
+          <rect x="350" y="260" width="200" height="56" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="364" y="279" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 4</text>
+          <text x="364" y="296" fill="var(--text)">Match upstream, decrypt key</text>
+          <text x="364" y="310" fill="var(--text-2)">api.github.com → GITHUB_TOKEN</text>
+
+          <rect x="350" y="346" width="200" height="70" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="364" y="365" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 5</text>
+          <text x="364" y="382" fill="var(--text)">Substitute on the wire</text>
+          <text x="364" y="397" fill="var(--vis)" font-family="ui-monospace">__github_token__</text>
+          <text x="364" y="411" fill="var(--ok)" font-family="ui-monospace">→ ghp_PYdp8aALF…</text>
+
+          <rect x="640" y="260" width="200" height="56" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="654" y="279" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 6</text>
+          <text x="654" y="296" fill="var(--text)">Authenticated request</text>
+          <text x="654" y="310" fill="var(--text-2)">→ upstream returns 200</text>
+
+          <rect x="60" y="346" width="200" height="50" rx="8" fill="var(--bg-3)" stroke="var(--border)"/>
+          <text x="74" y="365" fill="var(--text-3)" font-size="12.5" font-weight="700">STEP 7</text>
+          <text x="74" y="384" fill="var(--text)">Agent receives response</text>
+        </g>
+
+        <!-- Forward path: agent → broker, broker → upstream -->
+        <path d="M 260 215 L 348 215" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#d3arr)"/>
+        <path d="M 552 286 L 638 286" stroke="var(--text-2)" stroke-width="2" fill="none" marker-end="url(#d3arr)"/>
+
+        <!-- Return path: single curve under all boxes (upstream → agent) -->
+        <path d="M 740 460 C 740 510, 200 540, 160 410" stroke="var(--text-2)" stroke-width="2" stroke-dasharray="5 4" fill="none" marker-end="url(#d3arr)"/>
+      </svg>

@@ -1,0 +1,13 @@
+# Local env (attendees copy from .env.example)
+.env
+
+# OS / editor
+.DS_Store
+*.swp
+
+# Node (if anyone installs marp locally)
+node_modules/
+
+# Local broker / runtime state
+*.log
+.agent-vault/

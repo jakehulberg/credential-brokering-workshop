@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1060 200" xmlns="http://www.w3.org/2000/svg" font-family="'Alliance No.2', Inter, system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="bfArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#52525b"/>
+    </marker>
+  </defs>
+
+  <!-- Agent -->
+  <rect x="20" y="60" width="220" height="90" rx="10" fill="#ffffff" stroke="#9a9aa2" stroke-width="1.5"/>
+  <text x="130" y="100" text-anchor="middle" fill="#111111" font-size="22" font-weight="700">Agent</text>
+  <text x="130" y="126" text-anchor="middle" fill="#52525b" font-size="14">holds no secrets</text>
+
+  <!-- arrow 1 -->
+  <path d="M 245 105 L 405 105" stroke="#52525b" stroke-width="2" fill="none" marker-end="url(#bfArr)"/>
+  <text x="325" y="92" text-anchor="middle" fill="#52525b" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">no key</text>
+
+  <!-- Broker -->
+  <rect x="410" y="50" width="240" height="110" rx="10" fill="#ffffff" stroke="#5b7000" stroke-width="2"/>
+  <text x="530" y="90" text-anchor="middle" fill="#111111" font-size="22" font-weight="700">Broker</text>
+  <text x="530" y="116" text-anchor="middle" fill="#5b7000" font-size="14" font-weight="600">holds real credentials</text>
+  <text x="530" y="137" text-anchor="middle" fill="#52525b" font-size="13">injects them here</text>
+
+  <!-- arrow 2 -->
+  <path d="M 655 105 L 815 105" stroke="#52525b" stroke-width="2" fill="none" marker-end="url(#bfArr)"/>
+  <text x="735" y="92" text-anchor="middle" fill="#52525b" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">authenticated</text>
+
+  <!-- API -->
+  <rect x="820" y="60" width="220" height="90" rx="10" fill="#ffffff" stroke="#9a9aa2" stroke-width="1.5"/>
+  <text x="930" y="100" text-anchor="middle" fill="#111111" font-size="22" font-weight="700">API</text>
+  <text x="930" y="126" text-anchor="middle" fill="#52525b" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">api.github.com</text>
+</svg>

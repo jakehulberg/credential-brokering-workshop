@@ -1,0 +1,10 @@
+# The "mock echo" service. postman-echo.com/get reflects every request header back as JSON.
+# Auth type "bearer" makes the broker inject `Authorization: Bearer <WORKSHOP_TOKEN>` on every
+# matching request. The agent sends NO auth; you'll see the injected token in the reflected JSON.
+# This is the whole demo in one service: capability in, secret never touched by the agent.
+services:
+  - name: echo
+    host: postman-echo.com
+    auth:
+      type: bearer
+      token: WORKSHOP_TOKEN   # credential KEY (value lives only in the broker)

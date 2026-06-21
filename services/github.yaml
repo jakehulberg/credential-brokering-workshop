@@ -1,0 +1,15 @@
+# OPTIONAL real service (presenter uses this live). Bearer injection: the agent sends NOTHING and the
+# broker attaches `Authorization: Bearer <GITHUB_TOKEN>` itself. Pairs with a plain `curl`:
+#   agent-vault run --vault workshop -- curl -s https://api.github.com/user
+# GitHub accepts Bearer for classic and fine-grained PATs. Requires a real GITHUB_TOKEN credential.
+#
+# Alternative (the `gh` CLI path): `gh` insists on sending its own token, so for that you'd use a
+# passthrough + substitution service instead (placeholder __github_token__ swapped in the header) and
+# set GH_TOKEN=__github_token__. Bearer + curl is simpler and demonstrates "agent sends nothing", so
+# that's the default here.
+services:
+  - name: github
+    host: api.github.com
+    auth:
+      type: bearer
+      token: GITHUB_TOKEN

@@ -1,0 +1,9 @@
+# OPTIONAL real service (presenter uses this live). Pure bearer injection: the agent sends NOTHING,
+# not even a placeholder. The broker attaches `Authorization: Bearer <STRIPE_KEY>` itself. Stripe
+# accepts bearer auth. Use a TEST-mode key only. Requires a real STRIPE_KEY credential.
+services:
+  - name: stripe
+    host: api.stripe.com
+    auth:
+      type: bearer
+      token: STRIPE_KEY
